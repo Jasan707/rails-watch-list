@@ -1,0 +1,2 @@
+class CreateList < ApplicationRecord
+end
