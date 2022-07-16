@@ -1,2 +1,0 @@
-class CreateList < ApplicationRecord
-end
