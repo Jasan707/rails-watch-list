@@ -9,15 +9,15 @@
 require 'open-uri'
 require 'json'
 
-#puts "Cleaning up database..."
-#Movie.destroy_all
-#puts "Database cleaned"
+puts "Cleaning up database..."
+Movie.destroy_all
+puts "Database cleaned"
 
 
 10.times do |i|
 url = "http://tmdb.lewagon.com/movie/top_rated"
   puts "Importing movies from page #{i + 1}"
-  movies = JSON.parse(open("#{url}?page=#{i + 1}").read)['results']
+  movies = JSON.parse(URI.open("#{url}?page=#{i + 1}").read)['results']
   movies.each do |movie|
     puts "Creating #{movie['title']}"
     base_poster_url = "https://image.tmdb.org/t/p/original"
